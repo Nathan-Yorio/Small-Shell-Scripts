@@ -8,5 +8,7 @@ echo "dockerizing the tars!"
 echo "............."
 echo "whatever that means..."
 echo "loading first image, standby..."
-for filename in ${wkdir}/*.tar.gz ; do docker load -i "$filename" ; done
+for filename in ${wkdir}/*.tar.gz ; 
+	do docker load -i "$filename" ; 
+done
 exit
