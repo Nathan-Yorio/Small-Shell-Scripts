@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Creating TAP interface for host"
+sudo ip tuntap add dev tap-gns3host mode tap user $(whoami)
+sudo ip addr add 192.168.1.5/24 dev tap-gns3host
+sudo ip link set tap-gns3host up
+
+echo "Adding a route to the GNS3 internal subnet"
+echo "Subnet is 10.10.10.0/24, change in script for others"
+sudo route add -net 10.10.10.0 netmask 255.255.255.0 gw 192.168.1.5
+
+echo "Starting GNS3 Server...."
+sleep 5s
+gns3server
