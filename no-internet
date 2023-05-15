@@ -1,0 +1,2 @@
+#!/bin/bash
+sg no-internet "$@" #sg - executes command as different group ID
